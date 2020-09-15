@@ -1,6 +1,9 @@
 <h1>Editing User</h1>
 
 <%= render 'form', user: @user %>
+<%= link_to 'Back to Mypage', @user %>
+<div class="mt-4">
+    <%= button_to 'Destroy this account', @user, method: :delete, class: 'btn btn-danger btn-sm', data: { confirm: 'Are you sure?' } %>
+</div>
 
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+
