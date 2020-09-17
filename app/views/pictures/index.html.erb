@@ -1,33 +1,26 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Pictures</h1>
+<% @pictures.each do |picture| %>
+  <div class="row no-gutters">
+	  <div class="col-md-3">
+		  <div class ="card mt-1 mb-2 mx" >
+			  <div class="card-body"></div>
+				  <div class="card-image">
+						<%= image_tag picture.image_url, id: "indeximage" %> 
+				  </div>
+				  <div class="caption">
+					
+				  </div>
+			  </div>
+		  </div>
+	  </div>			
+  </div>
+				
+ 
+  <br>
 
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Title</th>
-      <th>Img</th>
-      <th>Created at</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @pictures.each do |picture| %>
-      <tr>
-        <td><%= picture.user %></td>
-        <td><%= picture.title %></td>
-        <td><%= picture.img %></td>
-        <td><%= picture.created_at %></td>
-        <td><%= link_to 'Show', picture %></td>
-        <td><%= link_to 'Edit', edit_picture_path(picture) %></td>
-        <td><%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
+  <%= link_to 'Show', picture %> |
+  
+<% end %>
 <%= link_to 'New Picture', new_picture_path %>

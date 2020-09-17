@@ -2,7 +2,12 @@
 
 <p>
   <strong>User:</strong>
-  <%= @picture.user %>
+  <%= @picture.user.name %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @picture.image_url, id: "mainimage" %>
 </p>
 
 <p>
@@ -11,14 +16,10 @@
 </p>
 
 <p>
-  <strong>Img:</strong>
-  <%= @picture.img %>
-</p>
-
-<p>
   <strong>Created at:</strong>
   <%= @picture.created_at %>
 </p>
 
-<%= link_to 'Edit', edit_picture_path(@picture) %> |
+<%= link_to 'Destroy', @picture, method: :delete, data: { confirm: 'Are you sure?' } %> |
 <%= link_to 'Back', pictures_path %>
+
