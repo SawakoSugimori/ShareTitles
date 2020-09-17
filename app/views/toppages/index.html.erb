@@ -1,0 +1,23 @@
+<div class="center jumbotron">
+  <div class="text-center">
+    <h1>Welcome to the Sharetitles</h1>
+  </div>
+</div>
+<div class="container">
+  <% @pictures.each do |picture| %>
+    <div class="row no-gutters">
+	    <div class="col-md-3">
+		    <div class ="card mt-1 mb-2 mx" >
+			    <div class="card-body"></div>
+				    <div class="card-image">
+						  <%= image_tag picture.image_url, id: "indeximage" %> 
+				    </div>
+				    <div class="caption">
+					
+				    </div>
+			    </div>
+		    </div>
+	    </div>			
+    </div>
+	<% end %>			
+</div>
