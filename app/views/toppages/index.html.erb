@@ -1,6 +1,13 @@
 <div class="center jumbotron">
-  <div class="text-center">
-    <h1>Welcome to the Sharetitles</h1>
+  <div class="welcome text-center">
+    <h1 class="welcometitle">Welcome to the Sharetitles</h1>
+  </div>
+  <div class="welcomecontent">
+    
+  </div>
+  <div class="welcomebutton">
+    <%= link_to 'Signup', new_user_path, class: "btn welcomesignup" %>
+    <%= link_to 'Login', login_path, class: 'btn welcomelogin' %>
   </div>
 </div>
 <div class="container">
@@ -10,7 +17,7 @@
 		    <div class ="card mt-1 mb-2 mx" >
 			    <div class="card-body"></div>
 				    <div class="card-image">
-						  <%= image_tag picture.image_url, id: "indeximage" %> 
+						  <%= image_tag picture.image_url, id: "indeximage" %>
 				    </div>
 				    <div class="caption">
 					

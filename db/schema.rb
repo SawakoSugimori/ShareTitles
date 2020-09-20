@@ -10,19 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_15_134702) do
+ActiveRecord::Schema.define(version: 2020_09_17_090832) do
 
-  create_table "pictures", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "title_id"
+  create_table "pictures", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image"
-    t.index ["title_id"], name: "index_pictures_on_title_id"
     t.index ["user_id"], name: "index_pictures_on_user_id"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "titles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "title"
+    t.bigint "user_id"
+    t.bigint "picture_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["picture_id"], name: "index_titles_on_picture_id"
+    t.index ["user_id"], name: "index_titles_on_user_id"
+  end
+
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.string "password_digest"
@@ -30,4 +38,6 @@ ActiveRecord::Schema.define(version: 2020_09_15_134702) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "titles", "pictures"
+  add_foreign_key "titles", "users"
 end

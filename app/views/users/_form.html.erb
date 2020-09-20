@@ -1,4 +1,4 @@
-<%= form_with(model: user, local: true) do |form| %>
+<%= form_with(model: @user, local: true) do |form| %>
   <% if user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -22,13 +22,13 @@
   </div>
 
   <div class="form-group">
-    <%= form.label :password_digest, 'Password' %>
-    <%= form.text_field :password_digest, class:"form-control" %>
+    <%= form.label :password, 'Password' %>
+    <%= form.password_field :password, class:"form-control" %>
   </div>
   
   <div class="form-group">
     <%= form.label :password_confirmation, 'Confirmation' %>
-    <%= form.text_field :password_confirmation, class:"form-control" %>
+    <%= form.password_field :password_confirmation, class:"form-control" %>
   </div>
 
   <div class="actions">

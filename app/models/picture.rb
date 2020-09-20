@@ -1,6 +1,6 @@
 class Picture < ApplicationRecord
   belongs_to :user
-  belongs_to :title, optional: true
+  has_many :titles
   
   mount_uploader :image, ImageUploader
   

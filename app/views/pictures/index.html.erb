@@ -10,7 +10,13 @@
 						<%= image_tag picture.image_url, id: "indeximage" %> 
 				  </div>
 				  <div class="caption">
-					
+						<p><%= picture.user.name %></p>
+						<div id="posttitle">
+							<%= render 'titles/form', title: @title %>
+						</div>
+						<p class="btn btn-link btn-sm">
+							<%= link_to 'Show', picture %>
+						</p>
 				  </div>
 			  </div>
 		  </div>
@@ -19,8 +25,6 @@
 				
  
   <br>
-
-  <%= link_to 'Show', picture %> |
   
 <% end %>
 <%= link_to 'New Picture', new_picture_path %>

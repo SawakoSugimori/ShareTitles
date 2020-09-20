@@ -9,11 +9,13 @@ class PicturesController < ApplicationController
   # GET /pictures.json
   def index
     @pictures = Picture.order(id: :desc).page(params[:page])
+    @title = Title.new
   end
 
   # GET /pictures/1
   # GET /pictures/1.json
   def show
+    @titles = Title.order(id: :desc).page(params[:page])
   end
 
   # GET /pictures/new
