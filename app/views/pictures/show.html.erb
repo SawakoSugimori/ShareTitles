@@ -1,26 +1,37 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>User:</strong>
-  <%= @picture.user.name %>
-</p>
-
-<p>
-  <strong>Image:</strong>
+<div class="d-flex justify-content-center">
+<div class="col-sm-10 col-xl-7">
   <%= image_tag @picture.image_url, id: "mainimage" %>
-</p>
+  <div class="d-flex">
+    <small class="ml-auto mb-2">
+      <%= link_to @picture.user.name, user_path(@picture.user) %>
+      <span class="text-muted mx-2">posted at<%= l @picture.created_at %></span>
+    </small>
+  </div>
+  
+  <div class="pictitles mb-5">
+    <p>
+    <strong>Titles:</strong>
+    </p>
+    <% @titles.each do |title| %>
+    <ul class="list-unstyled">
+      <li class="mr-2">
+        <div>
+          <h6 class="mb-0"><%= title.title %></h6>
+        </div>
+        <small>
+          <%= link_to title.user.name, user_titles_path(title.user) %><span class="text-muted mx-2">posted at <%= l title.created_at %></span>
+        </small>
+     </li>
+    </ul>
+    <% end %>
+  </div>
 
-<p>
-  <strong>Title:</strong>
-  <%= title.title %>
-</p>
-
-
-<p>
-  <strong>Created at:</strong>
-  <%= @picture.created_at %>
-</p>
-
-<%= link_to 'Destroy', @picture, method: :delete, data: { confirm: 'Are you sure?' } %> |
-<%= link_to 'Back', pictures_path %>
-
+  <!--<% if current_user == @picture.user %>-->
+  <!--  <%= link_to 'Destroy', @picture, method: :delete, data: { confirm: 'Are you sure?' } %> |-->
+  <!--<% end %>-->
+  <p class="text-center">
+    <%= link_to 'Back to Home', pictures_path %>
+  </p>
+</div>
+</div>

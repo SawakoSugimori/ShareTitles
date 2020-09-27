@@ -3,21 +3,22 @@ class TitlesController < ApplicationController
   
   def index
     @titles = Title.order(id: :desc).page(params[:page]).per(25)
+    
   end
 
   def create
     @pictures = Picture.order(id: :desc).page(params[:page]) #check
     
-    @title = current_user.titles.build(title_params)
+    @title = current_user.titles.build(title: params[:title])
     @title.picture = Picture.find_by(id: params[:picture_id])
     
     if @title.save
       flash[:success] = 'タイトルを投稿しました。'
-      redirect_to 'titles/index'
+      redirect_to '/titles'
     else
       @titles = current_user.titles.order(id: :desc).page(params[:page])
       flash.now[:danger] = 'タイトルの投稿に失敗しました。'
-      render 'pictures/index'
+      render '/pictures'
     end
   end
 
@@ -29,9 +30,9 @@ class TitlesController < ApplicationController
   
   private
 
-  def title_params
-    params.require(:title).permit(:title)
-  end
+  # def title_params
+  #   params.require(:title).permit(:title)
+  # end
   
   def correct_user
     @title = current_user.titles.find_by(id: params[:id])

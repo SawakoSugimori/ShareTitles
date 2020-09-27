@@ -1,7 +1,5 @@
 <%= form_with(model: @title, local:true) do |f| %>
   <%= render 'layouts/error_messages', model: f.object %>
-	<div class="form-group">
-		<%= f.text_area :title, class: 'form-control', rows: 1 %>
-	</div>
-	<%= f.submit 'Post',class: 'btn btn-sm' %>
+		<%= f.text_field :title %>
+	<%= f.submit 'Post', class: 'btn btn-sm', id: 'titlebtn' %>
 <% end %>						

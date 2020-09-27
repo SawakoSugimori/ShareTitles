@@ -1,4 +1,6 @@
 <p id="notice"><%= notice %></p>
+
+
 <div class="row">
   <aside class="col-sm-2">
     <p>
@@ -15,9 +17,9 @@
   </aside>
   <div class="col-sm-10">
     <ul class="nav nav-tabs nav-justified mb-3">
-      <li class="nav-item"><%= link_to "Titles", user_titles_path(@user.id),  class: "nav-link active" %></li>
-      <li class="nav-item"><%= link_to "Pictures", user_pictures_path(@user.id), class: "nav-link" %></li>
+      <li class="nav-item"><%= link_to "Titles", user_titles_path(@user.id),  class: "nav-link" %></li>
+      <li class="nav-item"><%= link_to "Pictures", user_pictures_path(@user.id), class: "nav-link active" %></li>
     </ul>
-    <%= render "titles/titles" %>
+    <%= render "pictures/pictureslist" %>
   </div>
 </div>

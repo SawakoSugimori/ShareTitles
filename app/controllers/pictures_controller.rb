@@ -1,5 +1,6 @@
 class PicturesController < ApplicationController
   before_action :set_picture, only: [:show, :edit, :update, :destroy]
+  before_action :require_user_logged_in, only: [:new, :create, :update, :edit, :destroy]
 
   # GET /pictures
   def new
@@ -15,7 +16,7 @@ class PicturesController < ApplicationController
   # GET /pictures/1
   # GET /pictures/1.json
   def show
-    @titles = Title.order(id: :desc).page(params[:page])
+     @titles = @picture.titles.order(id: :desc).page(params[:page])
   end
 
   # GET /pictures/new
@@ -78,4 +79,5 @@ class PicturesController < ApplicationController
       params.require(:picture).permit(:image)
     end
     
+
 end

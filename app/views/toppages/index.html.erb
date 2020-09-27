@@ -1,30 +1,24 @@
-<div class="center jumbotron">
-  <div class="welcome text-center">
-    <h1 class="welcometitle">Welcome to the Sharetitles</h1>
-  </div>
-  <div class="welcomecontent">
-    
-  </div>
-  <div class="welcomebutton">
-    <%= link_to 'Signup', new_user_path, class: "btn welcomesignup" %>
-    <%= link_to 'Login', login_path, class: 'btn welcomelogin' %>
+<div class="top-wrapper">
+  <div class="center">
+    <div class="welcome">
+      <h1 class="welcometitle">Titles</h1>
+      <P><%= link_to 'Signup', new_user_path, class: "welcomesignup" %>
+      <%= link_to 'Login', login_path, class: 'welcomelogin' %></P>
+    </div>
   </div>
 </div>
-<div class="container">
+<div class="galleries">
+<div class="row no-gutters">
   <% @pictures.each do |picture| %>
-    <div class="row no-gutters">
-	    <div class="col-md-3">
-		    <div class ="card mt-1 mb-2 mx" >
-			    <div class="card-body"></div>
-				    <div class="card-image">
-						  <%= image_tag picture.image_url, id: "indeximage" %>
-				    </div>
-				    <div class="caption">
-					
-				    </div>
-			    </div>
+    <div class="col-md-4">
+	      <div class="top-image img-thumbnail">
+			    <%= link_to (image_tag (picture.image_url), id: "indeximage"), picture %>
 		    </div>
-	    </div>			
-    </div>
-	<% end %>			
+
+	  	  <div class="caption">
+	  	    <p><%= picture.user.name%></p>
+			  </div>
+	
+  	</div>
+  <% end %>	
 </div>

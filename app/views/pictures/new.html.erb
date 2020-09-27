@@ -1,5 +1,9 @@
-<h1>New Picture</h1>
+<div class="top-wrapper">
+  <h1>New Picture</h1>
+</div>
+<div class="text-center">
+    <%= render 'form', picture: @picture %>
+    <br>
+    <%= link_to 'Back to Home', pictures_path %>
+</div>
 
-<%= render 'form', picture: @picture %>
-
-<%= link_to 'Back', pictures_path %>

@@ -1,23 +1,27 @@
 <ul class="list-unstyled">
-  <% titles.each do |title| %>
-    <li class="media" >
-      <div class="listimage">
-        <%= image_tag picture.image_url, id: "indeximage" %> 
+  <% @titles.each do |title| %>
+  <div class="container py-1">
+    <div class="card img-thumbnail col-lg-8 col-md-12">
+      <div class="row no-gutters">
+        <div class="col-md-3">
+          <div class="listimage">
+            <%= link_to image_tag(title.picture.image_url, id: "image-list" , width: 200), title.picture %>  
+          </div>
+        </div>
+        <div class="col-md-8 pl-sm-5" id="card-text">
+          <div class="card-body">
+            <h5><%= title.title %></h5>
+            <%= link_to title.user.name, user_titles_path(title.user) %> <span class="text-muted">posted at <%= l title.created_at %></span>
+            <br>
+            <% if current_user == title.user %>
+             <%= link_to "Delete", title, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm mt-2' %>
+            <% end %>
+          </div>
+        </div>
       </div>
-      <div class="media-body">
-        <div>
-          <p><%= title %></p>
-        </div>
-        <div>
-          <%= link_to title.user.name, user_path(title.user) %> <span class="text-muted">posted at <%= title.created_at %></span>
-        </div>
-        <div>
-          <% if current_user == titles.user %>
-            <%= link_to "Delete", title, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>
-          <% end %>
-        </div>
-      </div>
-    </li>
-	<% end %>
-	<%= paginate titles %>
+    </div>
+  </div>
+  
+  <%= paginate @titles %>
+  <% end %>
 </ul>

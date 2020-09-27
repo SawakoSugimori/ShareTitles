@@ -1,6 +1,16 @@
 // Place all the styles related to the Pictures controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+a {
+  color: #666;
+}
+header a {
+  color: #DCDCDC;
+}
+header a:hover {
+    color: #fff;
+    background-color: #000;
+}
 
 // Picture show.html.erb
 #mainimage {
@@ -8,9 +18,165 @@
     max-height: 500px;
     margin: 0 auto;
     display: block;
+    box-shadow: 0px 0.5px 1px 0px rgba(82,77,82,1);
+    border-radius: 0;
+    border: 5px solid #f8f8ff;
 }
 
-//Picture index.html.erb
+//header
+header {
+     z-index: 10;
+}
+.navbar-brand {
+   vertical-align: middle;
+}
+.navbar-fixed-top {
+    background-color: #191919;
+}
+.top-wrapper {
+    margin: 20px 0;
+    height: 80px;
+    text-align: center;
+}
+.menu-icon {
+    color: white;
+}
+
+//toppage
+.welcomesignup, .welcomelogin {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+//galleries
+.image-set {
+    margin-bottom: 20px;
+}
+.thumbnail {
+    border-radius: 0px;
+    margin: 2px;
+}
 #indeximage {
-    max-width: 267px;
+    vertical-align: middle;
+    max-width: 100%;
+    box-shadow: 0px 0.5px 0.5px 0.5px rgba(0,0,0,0.2);
+    border-radius: 0;
+    border: 5px solid #f8f8ff; 
+}
+.caption {
+    margin-top: 5px;
+    width: 100%;
+    margin-left: 5px;
+}
+.caption h3{
+    font-size: 12px;
+    margin: 2px 0px;
+    color: #666666;
+}
+
+form, .title-field {
+    display: inline-flex;
+}
+.title-field {
+    border: 1px solid #d3d3d3;
+    height: 28px;
+}
+.btn-sm {
+    background-color: #d3d3d3;
+    border: none;
+}
+
+//titles/_field.html.erb
+#posttitle {
+    width: 100%;
+    margin-top: 4px;
+}
+#titlebtn {
+    background-color: #55acee;
+}
+
+.account-form {
+  margin-top: 30px;
+  text-align: center;
+}
+.form-content {
+    margin: 0 auto;
+    width: 350px;
+}
+
+
+//title-list
+.card {
+    margin: 0 auto;
+}
+#card-text {
+    margin-left: 30px;
+}
+#image-list {
+    box-shadow: 0px 0.5px 1px 0px rgba(82,77,82,1);
+    border-radius: 0;
+    border: 3px solid #f8f8ff; 
+}
+
+@media (max-width: 1024px) {
+    .title-field {
+       width: 240px;
+    }
+    .galleries .row {
+        height: 300px;
+    }
+    .thumbnail {
+        max-height: 240px;
+    }
+    #indeximage {
+        max-height: 240px;
+    }
+}
+@media (max-width: 1000px) {
+    .title-field {
+       width: 170px;
+    }
+    .galleries .row {
+        height: 400;
+    }
+    .title-field {
+       width: 300px;
+    }
+    .galleries .row {
+        width: 70%;
+        margin: 0 auto;
+        height: 500px;
+    }
+    .thumbnail {
+        max-height: 350px;
+    }
+    #indeximage {
+        max-height: 350px;
+    }
+}
+@media (max-width: 670px) {
+    #card-text {
+        margin-left: 0px;
+    }
+    #image-list {
+       display: block;
+       margin: 0 auto;
+    }
+    .form-content {
+    width: 280px;
+    }
+    .title-field {
+       width: 200px;
+    }
+    .galleries .row {
+        width: 90%;
+        margin: 0 auto;
+        height: 300px;
+    }
+    .thumbnail {
+        max-height: 240px;
+    }
+    #indeximage {
+        max-height: 240px;
+    }
 }

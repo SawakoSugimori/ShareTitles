@@ -1,30 +1,34 @@
 <p id="notice"><%= notice %></p>
+<div class="top-wrapper">
+		<h1>ShareTitles</h1>
+		<% if logged_in? %>
+			<P><%= link_to 'Add New Picture', new_picture_path %></P>
+		<% else %>
+			<P><%= link_to 'Signup', new_user_path, class: "welcomesignup" %><%= link_to 'Login', login_path, class: 'welcomelogin' %></P>
+		<% end %>
+</div>
 
-<h1>Pictures</h1>
-<% @pictures.each do |picture| %>
-  <div class="row no-gutters">
-	  <div class="col-md-3">
-		  <div class ="card mt-1 mb-2 mx" >
-			  <div class="card-body"></div>
-				  <div class="card-image">
-						<%= image_tag picture.image_url, id: "indeximage" %> 
-				  </div>
-				  <div class="caption">
-						<p><%= picture.user.name %></p>
-						<div id="posttitle">
-							<%= render 'titles/form', title: @title %>
-						</div>
-						<p class="btn btn-link btn-sm">
-							<%= link_to 'Show', picture %>
-						</p>
-				  </div>
-			  </div>
-		  </div>
-	  </div>			
-  </div>
-				
- 
-  <br>
+<div class="galleries">
+	<div class="row  no-gutters">
+  	<% @pictures.each do |picture| %>
+    	<div class="col-lg-4 image-set">
+	    	<div class="thumbnail">
+			 	  <%= link_to (image_tag (picture.image_url), id: "indeximage"), picture %>
+		    </div>
+	  	 	<div class="caption">
+		  		<%= form_tag(titles_path, method: :post) do %>
+          <%= hidden_field_tag 'picture_id', picture.id %>
+            <div class="title-form">
+              <form><%= text_field_tag("title", "",{placeholder: "Enter title", class: "title-field"}) %></form>
+              <form><button type="submit" class="btn btn-sm btn-secondary title-submit">post</button></form>
+            </div>
+          <% end %>
+          	<h3><%= picture.user.name %></h3>
+				</div>
+			</div>
+	  <% end %>		
+	</div>
+</div>
   
-<% end %>
-<%= link_to 'New Picture', new_picture_path %>
+
+
