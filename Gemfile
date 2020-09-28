@@ -66,3 +66,7 @@ gem 'kaminari'
 gem 'carrierwave'
 
 gem 'mysql2', '>= 0.4.4', '< 0.6.0'
+
+group :production do
+  gem 'pg', '>= 0.18', '< 2.0'
+end

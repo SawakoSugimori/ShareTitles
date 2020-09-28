@@ -39,8 +39,11 @@ test:
 # database: db/test.sqlite3
   database: titles_test
 production:
-  <<: *default
-# database: db/production.sqlite3
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
   database: titles_production
   username: titles
   password: <%= ENV['GAMBARASE_DATABASE_PASSWORD'] %>
+# database: db/production.sqlite3
+ 
