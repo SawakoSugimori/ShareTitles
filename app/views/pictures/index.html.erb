@@ -17,11 +17,9 @@
 		    </div>
 	  	 	<div class="caption">
 		  		<%= form_tag(titles_path, method: :post) do %>
-          <%= hidden_field_tag 'picture_id', picture.id %>
-            <div class="title-form">
-              <form><%= text_field_tag("title", "",{placeholder: "Enter title", class: "title-field"}) %></form>
-              <form><button type="submit" class="btn btn-sm btn-secondary title-submit">post</button></form>
-            </div>
+		  		 <%= text_field_tag("title", "",{placeholder: "Enter title", class: "title-field"}) %>
+           <%= submit_tag 'Post', class: "btn btn-sm btn-secondary title-submit" %>
+           <%= hidden_field_tag 'picture_id', picture.id %>
           <% end %>
           	<h3><%= picture.user.name %></h3>
 				</div>
