@@ -139,6 +139,9 @@ form, .title-field {
     .galleries .row {
         height: 400;
     }
+    #image-list {
+       margin: 0 auto;
+    }
     .title-field {
        width: 300px;
     }
@@ -159,7 +162,6 @@ form, .title-field {
         margin-left: 0px;
     }
     #image-list {
-       display: block;
        margin: 0 auto;
     }
     .form-content {
@@ -178,5 +180,6 @@ form, .title-field {
     }
     #indeximage {
         max-height: 240px;
+        
     }
 }
